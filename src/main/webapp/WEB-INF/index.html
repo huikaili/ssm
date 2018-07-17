@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+
+    <script type="text/javascript" src="http://localhost/ssm5/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript">
+        var username=document.cookie;
+        function getCookie(name) {
+            var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+            if (arr=document.cookie.match(reg)){
+                return arr[2];
+            }else {
+                return null;
+            }
+        }
+        $(function () {
+            if (getCookie("username")!=null){
+                $("#welcome").html("欢迎你，"+getCookie("username"));
+            }else {
+                $("#welcome").html("<a href='toLogin'>请先登录</a>");
+            }
+        });
+    </script>
+
+</head>
+<body>
+<p id="welcome"></p>
+</body>
+</html>
